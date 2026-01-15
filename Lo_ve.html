@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Love You 💕</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Comic Sans MS', cursive;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        position: absolute;
+        text-align: center;
+        z-index: 5;
+        animation: pulse 2s infinite;
+    }
+
+    .text {
+        font-size: 38px;
+        color: #ff0033;
+        text-shadow: 2px 2px 6px rgba(255,0,0,0.4);
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    .heart {
+        position: absolute;
+        top: -50px; /* START DARI ATAS */
+        color: red;
+        animation: fall linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(120vh) scale(0.5);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="text">
+        ❤️ Love You ❤️<br>
+        Taman Ali Abdullah 💕
+    </div>
+</div>
+
+<script>
+    const totalHearts = 180;
+
+    for (let i = 0; i < totalHearts; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 18) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        heart.style.animationDelay = Math.random() * 5 + "s";
+
+        document.body.appendChild(heart);
+    }
+</script>
+
+</body>
+</html>
